@@ -1,13 +1,6 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'common', // mode is default - updated with development or production
-    devServer: { // common uses deafault
-        port: 80,
-        historyApiFallback: {
-            index: '/index.html',
-        },
-    },
-    plugins: [ ], // common uses empty plugins
     module: {
         rules: [
             {
@@ -22,7 +15,12 @@ module.exports = {
                 }
             },
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
+    ],
 };
 
 
